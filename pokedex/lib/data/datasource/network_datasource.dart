@@ -1,0 +1,16 @@
+import 'package:pokedex/data/responses/pokemons_response.dart';
+import 'package:pokedex/data/service/network_service.dart';
+
+abstract class NetworkDataSource {
+  Future<PokemonsResponse> getPokemons();
+}
+
+class NetworkDataSourceImpl implements NetworkDataSource {
+  final NetworkService _networkService;
+
+  NetworkDataSourceImpl(this._networkService);
+
+  @override
+  Future<PokemonsResponse> getPokemons() =>
+      _networkService.getPokemons();
+}
