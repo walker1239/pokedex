@@ -2,7 +2,6 @@ import 'package:json_annotation/json_annotation.dart';
 
 part 'pokemon_detail_response.g.dart';
 
-
 @JsonSerializable()
 class PokemonDetailResponse {
   int? height;
@@ -18,18 +17,17 @@ class PokemonDetailResponse {
   int? weight;
   List<Abilities>? abilities;
 
-  PokemonDetailResponse({
-    this.height,
-    this.id,
-    this.name,
-    this.order,
-    this.pokemonSpecies,
-    this.pokemonSprites,
-    this.stats,
-    this.types,
-    this.weight,
-    this.abilities
-  });
+  PokemonDetailResponse(
+      {this.height,
+      this.id,
+      this.name,
+      this.order,
+      this.pokemonSpecies,
+      this.pokemonSprites,
+      this.stats,
+      this.types,
+      this.weight,
+      this.abilities});
 
   factory PokemonDetailResponse.fromJson(Map<String, dynamic> json) =>
       _$PokemonDetailResponseFromJson(json);
@@ -70,6 +68,7 @@ class Sprites {
 
 @JsonSerializable()
 class Stat {
+  @JsonKey(name: 'base_stat')
   int? baseStat;
   int? effort;
   @JsonKey(name: 'stat')
@@ -141,11 +140,7 @@ class Abilities {
   bool? isHidden;
   int? slot;
 
-  Abilities({
-    this.ability,
-    this.isHidden,
-    this.slot
-  });
+  Abilities({this.ability, this.isHidden, this.slot});
 
   factory Abilities.fromJson(Map<String, dynamic> json) =>
       _$AbilitiesFromJson(json);
@@ -168,4 +163,3 @@ class Ability {
 
   Map<String, dynamic> toJson() => _$AbilityToJson(this);
 }
-

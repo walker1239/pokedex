@@ -67,7 +67,7 @@ Map<String, dynamic> _$SpritesToJson(Sprites instance) => <String, dynamic>{
     };
 
 Stat _$StatFromJson(Map<String, dynamic> json) => Stat(
-      baseStat: json['baseStat'] as int?,
+      baseStat: json['base_stat'] as int?,
       effort: json['effort'] as int?,
       statInfo: json['stat'] == null
           ? null
@@ -75,7 +75,7 @@ Stat _$StatFromJson(Map<String, dynamic> json) => Stat(
     );
 
 Map<String, dynamic> _$StatToJson(Stat instance) => <String, dynamic>{
-      'baseStat': instance.baseStat,
+      'base_stat': instance.baseStat,
       'effort': instance.effort,
       'stat': instance.statInfo,
     };

@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:pokedex/application/constants/string_constants.dart';
-import 'package:pokedex/application/constants/url_constants.dart';
 import 'package:pokedex/application/route/router.dart';
 import 'package:pokedex/domain/model/pokemons.dart';
 
@@ -25,7 +23,7 @@ class CardPokemon extends StatelessWidget {
                 child: Text(
                   '#${pokemon.detail?.order.toString().padLeft(3, '0') ?? ""}',
                   textAlign: TextAlign.right,
-                  style: TextStyle(
+                  style: const TextStyle(
                     color: Color(0xFF666666),
                     fontSize: 8,
                     fontFamily: 'Poppins',
@@ -34,14 +32,13 @@ class CardPokemon extends StatelessWidget {
                   ),
                 ),
               ),
-
               Positioned(
                 bottom: 0,
                 child: Container(
                   width: size.width / 3 - 11,
                   height: 44,
                   decoration: ShapeDecoration(
-                    color: Color(0xFFEFEFEF),
+                    color: const Color(0xFFEFEFEF),
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(7)),
                   ),
@@ -51,7 +48,7 @@ class CardPokemon extends StatelessWidget {
                     child: Text(
                       pokemon.name,
                       textAlign: TextAlign.center,
-                      style: TextStyle(
+                      style: const TextStyle(
                         color: Color(0xFF1C1C1C),
                         fontSize: 10,
                         fontFamily: 'Poppins',
@@ -64,9 +61,9 @@ class CardPokemon extends StatelessWidget {
               ),
               Center(
                   child: Image.network(
-                    pokemon.detail?.image ?? "",
-                    width: 85,
-                  )),
+                pokemon.detail?.image ?? "",
+                width: 85,
+              )),
             ],
           ),
         ),

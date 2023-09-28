@@ -12,6 +12,14 @@ class Pokemons {
     this.previous,
     required this.results,
   });
+  Pokemons copy() {
+    return Pokemons(
+      count: count,
+      next: next,
+      previous: previous,
+      results: List.from(results.map((pokemon) => pokemon.copy())),
+    );
+  }
 }
 
 class Pokemon {
@@ -19,9 +27,13 @@ class Pokemon {
   String url;
   PokemonDetail? detail;
 
-  Pokemon({
-    required this.name,
-    required this.url,
-    this.detail
-  });
+  Pokemon({required this.name, required this.url, this.detail});
+
+  Pokemon copy() {
+    return Pokemon(
+      name: name,
+      url: url,
+      detail: detail,
+    );
+  }
 }
