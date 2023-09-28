@@ -1,3 +1,5 @@
+import 'package:pokedex/domain/model/pokemon_detail.dart';
+
 class Pokemons {
   int count;
   String? next;
@@ -15,9 +17,11 @@ class Pokemons {
 class Pokemon {
   String name;
   String url;
+  PokemonDetail? detail;
 
   Pokemon({
     required this.name,
     required this.url,
+    this.detail
   });
 }

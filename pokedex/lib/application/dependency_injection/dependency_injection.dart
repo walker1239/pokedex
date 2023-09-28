@@ -5,8 +5,10 @@ import 'package:pokedex/data/datasource/network_datasource.dart';
 import 'package:pokedex/data/repository/repository_impl.dart';
 import 'package:pokedex/data/service/network_service.dart';
 import 'package:pokedex/domain/repository/repository.dart';
+import 'package:pokedex/domain/usecase/get_pokemon_detail_usecase.dart';
 import 'package:pokedex/domain/usecase/get_pokemons_usecase.dart';
 import 'package:pokedex/presentation/pokedex_viewmodel.dart';
+import 'package:pokedex/presentation/screens/detail_viewmodel.dart';
 
 final getIt = GetIt.instance;
 
@@ -28,5 +30,14 @@ void initPokedex() {
   if (!GetIt.I.isRegistered<PokedexViewModel>()) {
     getIt.registerLazySingleton<PokedexViewModel>(
             () => PokedexViewModel(getIt<GetPokemonsUseCase>()));
+  }
+}
+
+void initPokemonDetail() {
+  if (!GetIt.I.isRegistered<DetailViewModel>()) {
+    getIt.registerLazySingleton<GetPokemonDetailUseCase>(
+            () => GetPokemonDetailUseCase(getIt<Repository>()));
+    getIt.registerLazySingleton<DetailViewModel>(
+            () => DetailViewModel(getIt<GetPokemonDetailUseCase>()));
   }
 }
